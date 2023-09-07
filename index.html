@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-Time Number Sync</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #number {
+      font-size: 36px; /* Increased font size for the current number */
+      font-weight: bold;
+      color: #333;
+    }
+
+    #updatedNumber {
+      font-size: 24px; /* Increased font size for the updated number */
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Real-Time Number Sync</h1>
+    <p>Current Number: <span id="number">0</span></p>
+    <button id="incrementButton">Increment Number</button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Listen for number updates from the server
+    socket.on('numberUpdated', (number) => {
+      document.getElementById('number').textContent = number;
+    });
+
+    // Handle button click to increment the number
+    document.getElementById('incrementButton').addEventListener('click', () => {
+      // Get the current number
+      let currentNumber = parseInt(document.getElementById('number').textContent);
+
+      // Increment the number by 1
+      currentNumber++;
+
+      // Update the displayed number
+      document.getElementById('number').textContent = currentNumber;
+
+      // Send the updated number to the server
+      socket.emit('updateNumber', currentNumber);
+    });
+  </script>
+</body>
+</html>
+

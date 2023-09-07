@@ -1,0 +1,24 @@
+{
+  "name": "realtime-number-sync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dapgx/realtimenumbersync-iseng.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dapgx/realtimenumbersync-iseng/issues"
+  },
+  "homepage": "https://github.com/dapgx/realtimenumbersync-iseng#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  }
+}
