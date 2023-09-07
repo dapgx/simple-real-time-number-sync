@@ -4,6 +4,8 @@ This is a simple web application that allows multiple users to synchronize and i
 
 ## Getting Started
 
+> This project is built on Node.js 14.
+
 To run this project locally, follow these steps:
 
 1. Clone this repository to your local machine:
