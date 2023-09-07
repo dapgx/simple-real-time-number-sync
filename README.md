@@ -16,9 +16,9 @@ To run this project locally, follow these steps:
    ```bash
    npm install
 
-3. Start the Node.js server:
+2. Start the Node.js server:
 
-   ```bashCopy code
+   ```bash
    node server.js
    
 4. Open a web browser and access the application at http://localhost:3000.
