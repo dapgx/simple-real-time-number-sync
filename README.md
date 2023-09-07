@@ -20,7 +20,7 @@ To run this project locally, follow these steps:
 
    ```bashCopy code
    node server.js
-
+   
 4. Open a web browser and access the application at http://localhost:3000.
 
 ## Usage
