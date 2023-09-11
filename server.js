@@ -6,21 +6,19 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-let currentNumber = 0; // Initial number
+let currentNumber = 0;
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html'); // Create this HTML file in step 7.
+  res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  // Send the current number to the newly connected client
   socket.emit('numberUpdated', currentNumber);
 
   socket.on('updateNumber', (number) => {
-    // Broadcast the updated number to all connected clients
-    currentNumber = number; // Update the current number
+    currentNumber = number;
     io.emit('numberUpdated', currentNumber);
   });
 
